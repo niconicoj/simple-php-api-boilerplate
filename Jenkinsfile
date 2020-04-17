@@ -1,11 +1,8 @@
 pipeline {
   agent any
   stages {
-    stage('deploy') {
-      steps {
-        sh 'echo yo'
-      }
+    sshagent(['debian-ssh-credentials']) {
+      sh "ssh debian@niconico.io"
     }
-
   }
 }
