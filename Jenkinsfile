@@ -4,7 +4,7 @@ pipeline {
     stage('deploy') {
       steps {
         sshagent(['debian-ssh-credentials']) {
-          sh "ssh debian@niconico.io"
+          sh "ssh -vvv -o StrictHostKeyChecking=no -T debian@niconico.io"
         }
       }
     }
