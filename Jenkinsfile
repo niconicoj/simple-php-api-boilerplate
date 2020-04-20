@@ -4,9 +4,7 @@ pipeline {
     stage('deploy') {
       steps {
         sshagent(credentials: ['debian-ssh-credentials']) {
-          sh '''ssh -o StrictHostKeyChecking=no -t debian@niconico.io \\
-"cd docker/simple-api/simple-php-api-boilerplate ;\\
-git pull"'''
+          sh 'git push ssh://debian@niconico.io/home/debian/docker/simple-api/simple-php-api-boilerplate'
         }
 
       }
